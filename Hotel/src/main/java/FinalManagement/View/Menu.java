@@ -4,8 +4,11 @@ import FinalManagement.Controller.Button;
 
 import javax.swing.*;
 import java.awt.*;
+<<<<<<< HEAD
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+=======
+>>>>>>> master
 
 public class Menu {
     public static JFrame frame;
@@ -130,6 +133,7 @@ public class Menu {
         return button;
     }
 
+<<<<<<< HEAD
     private static JTextField createRoundedInputField() {
         JTextField textField = new JTextField("") {
             @Override
@@ -175,4 +179,6 @@ public class Menu {
         textField.setForeground(Color.GRAY);
         return textField;
     }
+=======
+>>>>>>> master
 }

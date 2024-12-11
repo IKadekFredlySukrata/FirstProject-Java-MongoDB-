@@ -4,7 +4,10 @@ import FinalManagement.Controller.MongoDBFunction;
 
 import javax.swing.*;
 import java.awt.*;
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> master
 import java.util.List;
 
 public class HotelMenu {
@@ -75,7 +78,11 @@ public class HotelMenu {
         JPanel rectanglePanel = getJPanel();
         rectanglePanel.setOpaque(false);
 
+<<<<<<< HEAD
         JButton backButton = createRoundedButton("Back");
+=======
+        JButton backButton = createRoundedButton();
+>>>>>>> master
         backButton.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
@@ -157,7 +164,11 @@ public class HotelMenu {
         button.setIcon(new ImageIcon(resizedHotelPicture));
 
         button.addActionListener(e -> {
+<<<<<<< HEAD
             List<String[]> roomDetails = new ArrayList<>();
+=======
+            List<String[]> roomDetails;
+>>>>>>> master
             frame.dispose();
             roomDetails = mongoDBFunction.fetchRoomDetails(hotel[0]);
             RoomMenu roomMenu = new RoomMenu(roomDetails);
@@ -168,8 +179,13 @@ public class HotelMenu {
         return button;
     }
 
+<<<<<<< HEAD
     private static JButton createRoundedButton(String text) {
         JButton button = new JButton(text) {
+=======
+    private static JButton createRoundedButton() {
+        JButton button = new JButton("Back") {
+>>>>>>> master
             @Override
             protected void paintComponent(Graphics g) {
                 Graphics2D g2d = (Graphics2D) g.create();
