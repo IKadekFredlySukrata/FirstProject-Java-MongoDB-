@@ -1,0 +1,340 @@
+[{
+  "_id": {
+    "$oid": "6750588b8c691b05105804ec"
+  },
+  "hotel_id": 1,
+  "hotel_name": "Raffles Jakarta",
+  "room_type": "Executive Suite",
+  "description": "Luxurious suite with a city view and exclusive amenities.",
+  "features": [
+    "City view",
+    "Free WiFi",
+    "King-size bed",
+    "Spacious living area"
+  ],
+  "price_per_night": 250,
+  "rooms_available": 5,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Raffles Jakarta - Executive Suite.jpg"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804ed"
+  },
+  "hotel_id": 1,
+  "hotel_name": "Raffles Jakarta",
+  "room_type": "Deluxe Room",
+  "description": "Elegant room with modern facilities and city view.",
+  "features": [
+    "City view",
+    "Free WiFi",
+    "Queen-size bed"
+  ],
+  "price_per_night": 180,
+  "rooms_available": 20,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Raffles Jakarta - Deluxe Room.jpg"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804ee"
+  },
+  "hotel_id": 2,
+  "hotel_name": "The Apurva Kempinski Bali",
+  "room_type": "Oceanfront Suite",
+  "description": "Suite with direct ocean view and a private pool.",
+  "features": [
+    "Ocean view",
+    "Private pool",
+    "King-size bed",
+    "Spacious balcony"
+  ],
+  "price_per_night": 450,
+  "rooms_available": 5,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\The Apurva Kempinski Bali - Oceanfront Suite.jpeg"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804ef"
+  },
+  "hotel_id": 2,
+  "hotel_name": "The Apurva Kempinski Bali",
+  "room_type": "Deluxe Ocean Room",
+  "description": "Modern room with ocean views and a cozy balcony.",
+  "features": [
+    "Ocean view",
+    "Free WiFi",
+    "Queen-size bed"
+  ],
+  "price_per_night": 300,
+  "rooms_available": 10,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\The Apurva Kempinski Bali - Deluxe Ocean Suite.jpeg"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804f0"
+  },
+  "hotel_id": 3,
+  "hotel_name": "The St. Regis Bali Resort",
+  "room_type": "St. Regis Suite",
+  "description": "Exclusive suite with lagoon access.",
+  "features": [
+    "Lagoon access",
+    "King-size bed",
+    "Butler service"
+  ],
+  "price_per_night": 500,
+  "rooms_available": 8,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\The St. Regis Bali Resort - St. Regis Suite.png"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804f1"
+  },
+  "hotel_id": 3,
+  "hotel_name": "The St. Regis Bali Resort",
+  "room_type": "Gardenia Villa",
+  "description": "Private villa with lush garden surroundings.",
+  "features": [
+    "Garden view",
+    "Private pool",
+    "King-size bed"
+  ],
+  "price_per_night": 600,
+  "rooms_available": 5,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\The St. Regis Bali Resort - Gardenia Villa.jpeg"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804f2"
+  },
+  "hotel_id": 4,
+  "hotel_name": "Mandarin Oriental Jakarta",
+  "room_type": "Club Room",
+  "description": "Room with exclusive access to the Club Lounge.",
+  "features": [
+    "City view",
+    "King-size bed",
+    "Free breakfast"
+  ],
+  "price_per_night": 220,
+  "rooms_available": 12,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Mandarin Oriental Jakarta - Club Room.png"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804f3"
+  },
+  "hotel_id": 4,
+  "hotel_name": "Mandarin Oriental Jakarta",
+  "room_type": "Superior Room",
+  "description": "Comfortable room with modern amenities.",
+  "features": [
+    "City view",
+    "Queen-size bed"
+  ],
+  "price_per_night": 150,
+  "rooms_available": 25,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Mandarin Oriental Jakarta - Superior Room.png"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804f4"
+  },
+  "hotel_id": 5,
+  "hotel_name": "Hotel Indonesia Kempinski",
+  "room_type": "Presidential Suite",
+  "description": "Luxury suite with panoramic city views.",
+  "features": [
+    "City view",
+    "Private dining area",
+    "King-size bed"
+  ],
+  "price_per_night": 1000,
+  "rooms_available": 2,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Hotel Indonesia Kempinski Jakarta - Presidential Suite.jpeg"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804f5"
+  },
+  "hotel_id": 5,
+  "hotel_name": "Hotel Indonesia Kempinski",
+  "room_type": "Deluxe Room",
+  "description": "Elegant room with modern amenities.",
+  "features": [
+    "City view",
+    "Free WiFi",
+    "Queen-size bed"
+  ],
+  "price_per_night": 200,
+  "rooms_available": 18,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Hotel Indonesia Kempinski Jakarta - Deluxe Room.jpeg"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804f6"
+  },
+  "hotel_id": 6,
+  "hotel_name": "Ayana Resort and Spa Bali",
+  "room_type": "Ocean View Suite",
+  "description": "Spacious suite with stunning ocean views.",
+  "features": [
+    "Ocean view",
+    "King-size bed",
+    "Free breakfast"
+  ],
+  "price_per_night": 400,
+  "rooms_available": 7,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Ayana Resort and Spa Bali - Ocean View Suite.png"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804f7"
+  },
+  "hotel_id": 6,
+  "hotel_name": "Ayana Resort and Spa Bali",
+  "room_type": "Villa with Pool",
+  "description": "Private villa with its own infinity pool.",
+  "features": [
+    "Ocean view",
+    "Infinity pool",
+    "King-size bed"
+  ],
+  "price_per_night": 800,
+  "rooms_available": 4,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Ayana Resort and Spa Bali - Villa with Pool.jpeg"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804f8"
+  },
+  "hotel_id": 7,
+  "hotel_name": "Four Seasons Resort Bali",
+  "room_type": "Garden Villa",
+  "description": "Private villa surrounded by lush gardens.",
+  "features": [
+    "Garden view",
+    "Private pool",
+    "King-size bed"
+  ],
+  "price_per_night": 600,
+  "rooms_available": 9,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Four Seasons Resort Bali - Garden View.jpg"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804f9"
+  },
+  "hotel_id": 7,
+  "hotel_name": "Four Seasons Resort Bali",
+  "room_type": "Ocean View Room",
+  "description": "Room with beautiful views of the ocean.",
+  "features": [
+    "Ocean view",
+    "King-size bed",
+    "Free breakfast"
+  ],
+  "price_per_night": 350,
+  "rooms_available": 14,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Four Seasons Resort Bali - Ocean View Room.jpg"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804fa"
+  },
+  "hotel_id": 8,
+  "hotel_name": "The Ritz-Carlton Jakarta",
+  "room_type": "Club Deluxe Room",
+  "description": "Room with Club Lounge access and city views.",
+  "features": [
+    "City view",
+    "King-size bed",
+    "Free breakfast"
+  ],
+  "price_per_night": 230,
+  "rooms_available": 10,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\The Ritz-Carlton Jakarta - Club Deluxe Room.png"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804fb"
+  },
+  "hotel_id": 8,
+  "hotel_name": "The Ritz-Carlton Jakarta",
+  "room_type": "Deluxe Suite",
+  "description": "Spacious suite with luxurious amenities.",
+  "features": [
+    "City view",
+    "King-size bed",
+    "Separate living area"
+  ],
+  "price_per_night": 300,
+  "rooms_available": 8,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\The Ritz-Carlton Jakarta - Deluxe Suite.png"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804fc"
+  },
+  "hotel_id": 9,
+  "hotel_name": "Nihi Sumba",
+  "room_type": "Luxury Villa",
+  "description": "Exclusive villa with stunning beach views.",
+  "features": [
+    "Beach view",
+    "Private pool",
+    "King-size bed"
+  ],
+  "price_per_night": 1200,
+  "rooms_available": 5,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Nihi Sumba - Luxury Villa.jpg"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804fd"
+  },
+  "hotel_id": 9,
+  "hotel_name": "Nihi Sumba",
+  "room_type": "One Bedroom Suite",
+  "description": "Suite with ocean views and elegant design.",
+  "features": [
+    "Ocean view",
+    "King-size bed"
+  ],
+  "price_per_night": 800,
+  "rooms_available": 6,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Nihi Sumba - One Bedroom Suite.jpg"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804fe"
+  },
+  "hotel_id": 10,
+  "hotel_name": "Capella Ubud",
+  "room_type": "Terrace Tent",
+  "description": "Unique tented room with jungle views.",
+  "features": [
+    "Jungle view",
+    "King-size bed",
+    "Private outdoor deck"
+  ],
+  "price_per_night": 700,
+  "rooms_available": 7,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Capella Ubud - Terrace Tent.jpg"
+},
+{
+  "_id": {
+    "$oid": "6750588b8c691b05105804ff"
+  },
+  "hotel_id": 10,
+  "hotel_name": "Capella Ubud",
+  "room_type": "River Tent",
+  "description": "Tented room overlooking the river.",
+  "features": [
+    "River view",
+    "King-size bed",
+    "Outdoor lounge area"
+  ],
+  "price_per_night": 750,
+  "rooms_available": 5,
+  "roompicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Capella Ubud - River Tent.jpg"
+}]

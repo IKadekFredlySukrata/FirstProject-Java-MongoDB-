@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "67504d46bfa79ac48e3f228b"
+  },
+  "hotel_id": 1,
+  "name": "Raffles Jakarta",
+  "location": "Jakarta",
+  "rating": 5,
+  "hotelpicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Raffles Jakarta - Hotel Picture.png"
+},
+{
+  "_id": {
+    "$oid": "67504d46bfa79ac48e3f228c"
+  },
+  "hotel_id": 2,
+  "name": "The Apurva Kempinski Bali",
+  "location": "Bali",
+  "rating": 5,
+  "hotelpicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\The Apurva Kempinski Bali - Hotel Picture.png"
+},
+{
+  "_id": {
+    "$oid": "67504d46bfa79ac48e3f228d"
+  },
+  "hotel_id": 3,
+  "name": "The St. Regis Bali Resort",
+  "location": "Bali",
+  "rating": 5,
+  "hotelpicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\The St. Regis Bali Resort - Hotel Picture.jpeg"
+},
+{
+  "_id": {
+    "$oid": "67504d46bfa79ac48e3f228e"
+  },
+  "hotel_id": 4,
+  "name": "Mandarin Oriental Jakarta",
+  "location": "Jakarta",
+  "rating": 5,
+  "hotelpicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Mandarin Oriental Jakarta - Hotel Picture.png"
+},
+{
+  "_id": {
+    "$oid": "67504d46bfa79ac48e3f228f"
+  },
+  "hotel_id": 5,
+  "name": "Hotel Indonesia Kempinski",
+  "location": "Jakarta",
+  "rating": 5,
+  "hotelpicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Hotel Indonesia Kempinski Jakarta - Hotel Picture.jpeg"
+},
+{
+  "_id": {
+    "$oid": "67504d46bfa79ac48e3f2290"
+  },
+  "hotel_id": 6,
+  "name": "Ayana Resort and Spa Bali",
+  "location": "Bali",
+  "rating": 5,
+  "hotelpicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Ayana Resort and Spa Bali - Hotel Picture.png"
+},
+{
+  "_id": {
+    "$oid": "67504d46bfa79ac48e3f2291"
+  },
+  "hotel_id": 7,
+  "name": "Four Seasons Resort Bali",
+  "location": "Bali",
+  "rating": 5,
+  "hotelpicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Four Seasons Resort Bali - Hotel Picture.png"
+},
+{
+  "_id": {
+    "$oid": "67504d46bfa79ac48e3f2292"
+  },
+  "hotel_id": 8,
+  "name": "The Ritz-Carlton Jakarta",
+  "location": "Jakarta",
+  "rating": 5,
+  "hotelpicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\The Ritz-Carlton Jakarta - Hotel Picture.png"
+},
+{
+  "_id": {
+    "$oid": "67504d46bfa79ac48e3f2293"
+  },
+  "hotel_id": 9,
+  "name": "Nihi Sumba",
+  "location": "Sumba",
+  "rating": 5,
+  "hotelpicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Nihi Sumba - Hotel Picture.png"
+},
+{
+  "_id": {
+    "$oid": "67504d46bfa79ac48e3f2294"
+  },
+  "hotel_id": 10,
+  "name": "Capella Ubud",
+  "location": "Bali",
+  "rating": 5,
+  "hotelpicturelocation": "G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Capella Ubud - Hotel Picture.png"
+}]
