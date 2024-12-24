@@ -4,11 +4,6 @@ import FinalManagement.Controller.Button;
 
 import javax.swing.*;
 import java.awt.*;
-<<<<<<< HEAD
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-=======
->>>>>>> master
 
 public class Menu {
     public static JFrame frame;
@@ -133,52 +128,4 @@ public class Menu {
         return button;
     }
 
-<<<<<<< HEAD
-    private static JTextField createRoundedInputField() {
-        JTextField textField = new JTextField("") {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                Graphics2D g2d = (Graphics2D) g;
-                g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                g2d.setColor(getBackground());
-                g2d.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
-                super.paintComponent(g2d);
-            }
-
-            @Override
-            protected void paintBorder(Graphics g) {
-                Graphics2D g2d = (Graphics2D) g;
-                g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                g2d.setColor(Color.GRAY);
-                g2d.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 20, 20);
-            }
-        };
-        textField.setOpaque(false);
-        textField.setBackground(Color.WHITE);
-        textField.setFont(new Font("Arial", Font.PLAIN, 16));
-
-        textField.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                if (textField.getText().isEmpty()) {
-                    textField.setText("");
-                    textField.setForeground(Color.BLACK);
-                }
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                if (textField.getText().isEmpty()) {
-                    textField.setText("");
-                    textField.setForeground(Color.GRAY);
-                }
-            }
-        });
-
-        textField.setForeground(Color.GRAY);
-        return textField;
-    }
-=======
->>>>>>> master
 }

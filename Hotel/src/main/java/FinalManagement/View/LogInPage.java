@@ -67,11 +67,7 @@ public class LogInPage {
         JPasswordField passwordField = createRoundedPasswordField();
         passwordField.setBounds(startX + 30, startY + inputHeight + spacing + 20, inputWidth, inputHeight);
 
-<<<<<<< HEAD
-        JButton loginButton = createRoundedButton("Login", () ->
-=======
         JButton loginButton = createRoundedButton(() ->
->>>>>>> master
                 Button.handleLogin(emailField.getText(), String.valueOf(passwordField.getPassword()))
         );
         loginButton.setBounds(startX + 30, startY + inputHeight + spacing + 70, inputWidth, inputHeight);
@@ -139,13 +135,8 @@ public class LogInPage {
         return rectanglePanel;
     }
 
-<<<<<<< HEAD
-    private static JButton createRoundedButton(String text, Runnable action) {
-        JButton button = new JButton(text) {
-=======
     private static JButton createRoundedButton(Runnable action) {
         JButton button = new JButton("Login") {
->>>>>>> master
             @Override
             protected void paintComponent(Graphics g) {
                 Graphics2D g2d = (Graphics2D) g.create();

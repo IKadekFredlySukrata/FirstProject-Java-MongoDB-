@@ -70,11 +70,7 @@ public class RoomMenu {
         JPanel rectanglePanel = getJPanel();
         rectanglePanel.setOpaque(false);
 
-<<<<<<< HEAD
-        JButton backButton = createRoundedButton("Back");
-=======
         JButton backButton = createRoundedButton();
->>>>>>> master
         backButton.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
@@ -167,13 +163,8 @@ public class RoomMenu {
         return button;
     }
 
-<<<<<<< HEAD
-    private static JButton createRoundedButton(String text) {
-        JButton button = new JButton(text) {
-=======
     private static JButton createRoundedButton() {
         JButton button = new JButton("Back") {
->>>>>>> master
             @Override
             protected void paintComponent(Graphics g) {
                 Graphics2D g2d = (Graphics2D) g.create();

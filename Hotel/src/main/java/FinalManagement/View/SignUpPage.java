@@ -89,11 +89,7 @@ public class SignUpPage {
         passwordField.setBounds(startX + 30, startY + inputHeight + spacing + 210, inputWidth, inputHeight);
 
 
-<<<<<<< HEAD
-        JButton signUpButton = createRoundedButton("Sign Up", () ->
-=======
         JButton signUpButton = createRoundedButton(() ->
->>>>>>> master
                 Button.handleSignUp(fullNameField.getText(), genderField.getText(), idField.getText(), emailField.getText(), String.valueOf(passwordField.getPassword()))
         );
         signUpButton.setBounds(startX + 30, startY + inputHeight + spacing + 260, inputWidth, inputHeight);
@@ -167,13 +163,8 @@ public class SignUpPage {
         return rectanglePanel;
     }
 
-<<<<<<< HEAD
-    private static JButton createRoundedButton(String text, Runnable action) {
-        JButton button = new JButton(text) {
-=======
     private static JButton createRoundedButton(Runnable action) {
         JButton button = new JButton("Sign Up") {
->>>>>>> master
             @Override
             protected void paintComponent(Graphics g) {
                 Graphics2D g2d = (Graphics2D) g.create();
