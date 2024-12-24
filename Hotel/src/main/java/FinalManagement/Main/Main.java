@@ -4,8 +4,6 @@ import javax.swing.JOptionPane;
 
 import FinalManagement.View.LogInPage;
 
-import static FinalManagement.View.LogInPage.frame;
-
 public class Main {
     public static void main(String[] args) {
         JOptionPane.showMessageDialog(null, "Kelompok 3 \n" + 
