@@ -181,7 +181,7 @@ public class MongoDBFunction extends MongoDBBase {
     
                     Document updateOperation = new Document("$set",
                             new Document("bookings.$.rooms_booked", updatedRoomsBooked)
-                                    .append("bookings.$.booking_time", timestamp)); // Update booking time
+                                    .append("bookings.$.booking_time", timestamp));
     
                     updateDocument("User", updateFilter, updateOperation);
                     bookingExists = true;
@@ -304,11 +304,9 @@ public class MongoDBFunction extends MongoDBBase {
                     }
     
                     if (updatedRoomsBooked == 0) {
-                        // Remove the booking from the "bookings" array
                         Document pullOperation = new Document("$pull", new Document("bookings", new Document("room_type", chosenRoom)));
                         updateDocument("User", userFilter, pullOperation);
                     } else {
-                        // Update the booking quantity in the "bookings" array
                         Document updateFilter = new Document("Email", loggedEmail)
                                 .append("bookings.room_type", chosenRoom);
     
@@ -316,18 +314,15 @@ public class MongoDBFunction extends MongoDBBase {
                         updateDocument("User", updateFilter, updateOperation);
                     }
     
-                    // Check if the room already exists in the "cancelbooking" array
                     Document cancelFilter = new Document("Email", loggedEmail)
                             .append("cancelbooking.room_type", chosenRoom);
     
                     Document existingCancelBooking = findFirstDocument("User", cancelFilter);
     
                     if (existingCancelBooking != null) {
-                        // Update the quantity in the existing cancelbooking entry
                         Document updateCancelOperation = new Document("$inc", new Document("cancelbooking.$.quantity", cancelQuantity));
                         updateDocument("User", cancelFilter, updateCancelOperation);
                     } else {
-                        // Add a new entry to the "cancelbooking" array
                         Document canceledBooking = new Document()
                                 .append("hotel_name", chosenHotel)
                                 .append("room_type", chosenRoom)
