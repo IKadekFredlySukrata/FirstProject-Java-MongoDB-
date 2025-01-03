@@ -1,27 +1,44 @@
 package FinalManagement.View;
 
-import FinalManagement.Controller.MongoDBFunction;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.RenderingHints;
+import java.util.List;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
+
+import FinalManagement.Controller.MongoDBFunction;
 
 public class ListRoomOrder {
     private JFrame frame;
     private static final MongoDBFunction mongoDBFunction = new MongoDBFunction();
 
 
-    public ListRoomOrder(java.util.List<String[]> hotels) {
-        initializeFrame(hotels);
+    public ListRoomOrder(java.util.List<String[]> rooms) {
+        initializeFrame(rooms);
     }
 
-    private void initializeFrame(java.util.List<String[]> hotels) {
+    private void initializeFrame(java.util.List<String[]> rooms) {
         frame = new JFrame();
-        frame.setTitle("Hotel Menu Page");
+        frame.setTitle("List Room Order Page");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setSize(480, 800);
 
-        ImageIcon iconTopLeft = new ImageIcon("G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\PBO6_Source Code\\Hotel\\src\\Hotel Logo.png");
+        ImageIcon iconTopLeft = new ImageIcon("G:\\My Drive\\1 Fredly Sukrata\\1 Kuliah\\Semester 3\\3 Pratikum Kuliah\\Programming Berbasis Objek\\FirstProject-Java-MongoDB-\\Hotel\\src\\Hotel Logo.png");
         frame.setIconImage(iconTopLeft.getImage());
 
         frame.getContentPane().setBackground(Color.lightGray);
@@ -32,7 +49,7 @@ public class ListRoomOrder {
         text.setBounds(-75, 35, 400, 50);
         frame.add(text);
 
-        JPanel rectanglePanel = getRectanglePanel(hotels);
+        JPanel rectanglePanel = getRectanglePanel(rooms);
         frame.add(rectanglePanel);
     }
 
@@ -40,7 +57,7 @@ public class ListRoomOrder {
         frame.setVisible(true);
     }
 
-    private JPanel getRectanglePanel(java.util.List<String[]> hotels) {
+    private JPanel getRectanglePanel(java.util.List<String[]> rooms) {
         JPanel rectanglePanel = getPanel();
         rectanglePanel.setLayout(new BorderLayout());
 
@@ -52,7 +69,7 @@ public class ListRoomOrder {
         gbc.gridy = GridBagConstraints.RELATIVE;
         gbc.insets = new Insets(10, 0, 10, 0);
 
-        for (String[] hotel : hotels) {
+        for (String[] hotel : rooms) {
             JButton hotelButton = createHotelButton(hotel);
             hotelsPanel.add(hotelButton, gbc);
         }
@@ -73,7 +90,7 @@ public class ListRoomOrder {
         JPanel rectanglePanel = getJPanel();
         rectanglePanel.setOpaque(false);
 
-        JButton backButton = createRoundedButton();
+        JButton backButton = createRoundedButton("Back");
         backButton.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
@@ -110,13 +127,12 @@ public class ListRoomOrder {
         return rectanglePanel;
     }
 
-    private JButton createHotelButton(String[] hotel) {
-        JButton button = new JButton("<html>" +
-                "<b>" + hotel[0] + "</b><br>" +
-                "Room Type      : " + hotel[1] + "</b><br>" +
-                "Total Price    : $" + hotel[2] + "</b><br>" +
-                "Quantity       : " + hotel[3] + "</b><br>" +
-                "Time Booking   : " + hotel[4]) {
+    private JButton createHotelButton(String[] rooms) {
+        JButton button = new JButton("<html><div style='margin: 10px;'>" +
+                "<b>" + rooms[0] + "</b><br>" +
+                "Room Type      : " + rooms[1] + "</b><br>" +
+                "Quantity       : " + rooms[3] + "<br>" +
+                "</div></html>") {
             @Override
             protected void paintComponent(Graphics g) {
                 Graphics2D g2d = (Graphics2D) g.create();
@@ -135,33 +151,38 @@ public class ListRoomOrder {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
                 g2d.setColor(Color.lightGray);
-                g2d.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 30, 30);
+                g2d.drawRoundRect(0, 0, getWidth() - 2, getHeight() - 2, 30, 30);
                 g2d.dispose();
             }
         };
 
         button.setForeground(Color.BLACK);
-
         button.setFont(new Font("Arial", Font.PLAIN, 16));
-
         button.setContentAreaFilled(false);
         button.setOpaque(false);
         button.setFocusPainted(false);
         button.setBorderPainted(false);
-
         button.setPreferredSize(new Dimension(375, 200));
         button.setHorizontalAlignment(SwingConstants.LEFT);
         button.setVerticalAlignment(SwingConstants.CENTER);
-        ImageIcon pathHotelPicture = new ImageIcon(mongoDBFunction.pathHotelPicture(hotel[0]));
-        Image hotelPicture = pathHotelPicture.getImage();
-        Image resizedHotelPicture = hotelPicture.getScaledInstance(75, 75, Image.SCALE_SMOOTH);
-        button.setIcon(new ImageIcon(resizedHotelPicture));
+
+        button.addActionListener(e -> {
+            List<String[]> filmDetailsData;
+
+            frame.dispose();
+            filmDetailsData = mongoDBFunction.fetchRoomDetails2(rooms[1]);
+            int a = Integer.parseInt(rooms[3]);
+
+            CancelBooking cancelBooking = new CancelBooking(filmDetailsData, a);
+            cancelBooking.showFrame();
+        });
 
         return button;
     }
 
-    private static JButton createRoundedButton() {
-        JButton button = new JButton("Back") {
+
+    private static JButton createRoundedButton(String text) {
+        JButton button = new JButton(text) {
             @Override
             protected void paintComponent(Graphics g) {
                 Graphics2D g2d = (Graphics2D) g.create();

@@ -14,7 +14,7 @@ public class Menu {
 
     private void initializeFrame() {
         frame = new JFrame();
-        frame.setTitle("Login Page");
+        frame.setTitle("Menu Page");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setSize(480, 800);

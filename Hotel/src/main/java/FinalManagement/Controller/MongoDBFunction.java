@@ -97,6 +97,22 @@ public class MongoDBFunction extends MongoDBBase {
         return rooms;
     }
 
+    public List<String[]> fetchRoomDetails2(String roomType) {
+        Document filter = new Document("room_type", roomType);
+        List<Document> documents = findDocuments("Room", filter);
+        List<String[]> rooms = new ArrayList<>();
+
+        for (Document doc : documents) {
+            String chosenHotelName = doc.getString("hotel_name");
+            String description = doc.getString("description") != null ? doc.getString("description") : "N/A";
+            String price = doc.get("price_per_night") != null ? doc.get("price_per_night").toString() : "N/A";
+            String roomAvailable = doc.get("rooms_available") != null ? doc.get("rooms_available").toString() : "N/A";
+            String imagePath = doc.getString("roompicturelocation") != null ? doc.getString("roompicturelocation") : "";
+            rooms.add(new String[]{chosenHotelName, roomType, description, price, roomAvailable, imagePath});
+        }
+        return rooms;
+    }
+
     public boolean updateAvailability(List<String[]> room, String getBooked) {
         String[] roomDetails = room.getFirst();
 
@@ -134,46 +150,46 @@ public class MongoDBFunction extends MongoDBBase {
         try {
             Document userFilter = new Document("Email", loggedEmail);
             Document user = findFirstDocument("User", userFilter);
-
+    
             if (user == null) {
                 System.err.println("User not found.");
                 return;
             }
-
+    
             Document roomFilter = new Document("hotel_name", chosenHotel).append("room_type", chosenRoom);
             Document room = findFirstDocument("Room", roomFilter);
-
+    
             if (room == null) {
                 System.err.println("Room not found.");
                 return;
             }
-
+    
             int newRoomBooking = Integer.parseInt(numberRoomBooked);
             List<Document> bookings = user.getList("bookings", Document.class, new ArrayList<>());
-
+    
             boolean bookingExists = false;
-
+    
             for (Document booking : bookings) {
                 if (booking.getString("hotel_name").equals(chosenHotel) &&
                         booking.getString("room_type").equals(chosenRoom)) {
                     int existingRoomsBooked = booking.getInteger("rooms_booked", 0);
                     int updatedRoomsBooked = existingRoomsBooked + newRoomBooking;
-
+    
                     Document updateFilter = new Document("Email", loggedEmail)
                             .append("bookings.hotel_name", chosenHotel)
-                            .append("bookings.room_type", chosenRoom)
-                            .append("booking_time", timestamp);
-
+                            .append("bookings.room_type", chosenRoom);
+    
                     Document updateOperation = new Document("$set",
-                            new Document("bookings.$.rooms_booked", updatedRoomsBooked));
-
+                            new Document("bookings.$.rooms_booked", updatedRoomsBooked)
+                                    .append("bookings.$.booking_time", timestamp)); // Update booking time
+    
                     updateDocument("User", updateFilter, updateOperation);
                     bookingExists = true;
                     System.out.println("Updated existing booking with additional rooms.");
                     break;
                 }
             }
-
+    
             if (!bookingExists) {
                 Document newBooking = new Document()
                         .append("hotel_name", chosenHotel)
@@ -182,17 +198,21 @@ public class MongoDBFunction extends MongoDBBase {
                         .append("price_per_night", room.get("price_per_night"))
                         .append("rooms_booked", newRoomBooking)
                         .append("booking_time", timestamp);
-
+    
                 Document updateOperation = new Document("$push", new Document("bookings", newBooking));
                 updateDocument("User", userFilter, updateOperation);
                 System.out.println("Added a new booking with timestamp: " + timestamp);
             }
-
+    
+        } catch (NumberFormatException e) {
+            System.err.println("Invalid number format for the booking quantity.");
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Failed to add booking to user.");
         }
     }
+    
 
     public List<String[]> getOrderedRoomsByCustomer() {
         List<String[]> orderedRooms = new ArrayList<>();
@@ -211,11 +231,11 @@ public class MongoDBFunction extends MongoDBBase {
             for (Document booking : bookings) {
                 String hotelName = booking.getString("hotel_name");
                 String roomType = booking.getString("room_type");
-                String totalPrice = booking.get("price_per_night") != null ? booking.get("price_per_night").toString() : "N/A";
+                String roomQuantity = booking.get("price_per_night") != null ? booking.get("price_per_night").toString() : "N/A";
                 String roomsBooked = booking.get("rooms_booked") != null ? booking.get("rooms_booked").toString() : "N/A";
                 String bookingTime = booking.getString("booking_time") != null ? booking.getString("booking_time") : "N/A";
 
-                orderedRooms.add(new String[]{hotelName, roomType, String.valueOf(Integer.parseInt(totalPrice) * Integer.parseInt(roomsBooked)), roomsBooked, bookingTime});
+                orderedRooms.add(new String[]{hotelName, roomType, roomQuantity, roomsBooked, bookingTime});
             }
 
         } catch (Exception e) {
@@ -226,4 +246,115 @@ public class MongoDBFunction extends MongoDBBase {
         return orderedRooms;
     }
 
+    public boolean updateAvailabilityCancel(List<String[]> rooms, String getBooked) {
+        String[] roomsDetails = rooms.getFirst();
+        
+        try {
+            setChosenRoom(roomsDetails[1]);
+            setNumberRoomBooked(getBooked);
+            int bookedQuantity = Integer.parseInt(getBooked);
+            int remaining = Integer.parseInt(roomsDetails[4]) + bookedQuantity;
+
+            if (remaining < 0) {
+                System.err.println("Error: Booking quantity exceeds available rooms.");
+                return false;
+            }
+
+            Document filter = new Document("room_type", roomsDetails[1]);
+            Document updateOperation = new Document("$set", new Document("rooms_available", remaining));
+            updateDocument("Room", filter, updateOperation);
+
+            System.out.println("Database updated successfully.");
+            return true;
+        } catch (NumberFormatException e) {
+            System.err.println("Error: Invalid input for booking quantity.");
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("Error: Database update failed.");
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public void cancelBookingFromUser(String numberHotelBookedCancel) {
+        String timestamp = BookingTimestampHandler.getTimestamp();
+    
+        try {
+            Document userFilter = new Document("Email", loggedEmail);
+            Document user = findFirstDocument("User", userFilter);
+    
+            if (user == null) {
+                System.err.println("User not found.");
+                return;
+            }
+    
+            int cancelQuantity = Integer.parseInt(numberHotelBookedCancel);
+            List<Document> bookings = user.getList("bookings", Document.class, new ArrayList<>());
+    
+            boolean bookingExists = false;
+    
+            for (Document booking : bookings) {
+                if (booking.getString("room_type").equals(chosenRoom)) {
+                    int existingRoomsBooked = booking.getInteger("rooms_booked");
+                    int updatedRoomsBooked = existingRoomsBooked - cancelQuantity;
+    
+                    if (updatedRoomsBooked < 0) {
+                        System.err.println("Error: Cancel quantity exceeds the booked quantity.");
+                        return;
+                    }
+    
+                    if (updatedRoomsBooked == 0) {
+                        // Remove the booking from the "bookings" array
+                        Document pullOperation = new Document("$pull", new Document("bookings", new Document("room_type", chosenRoom)));
+                        updateDocument("User", userFilter, pullOperation);
+                    } else {
+                        // Update the booking quantity in the "bookings" array
+                        Document updateFilter = new Document("Email", loggedEmail)
+                                .append("bookings.room_type", chosenRoom);
+    
+                        Document updateOperation = new Document("$set", new Document("bookings.$.rooms_booked", updatedRoomsBooked));
+                        updateDocument("User", updateFilter, updateOperation);
+                    }
+    
+                    // Check if the room already exists in the "cancelbooking" array
+                    Document cancelFilter = new Document("Email", loggedEmail)
+                            .append("cancelbooking.room_type", chosenRoom);
+    
+                    Document existingCancelBooking = findFirstDocument("User", cancelFilter);
+    
+                    if (existingCancelBooking != null) {
+                        // Update the quantity in the existing cancelbooking entry
+                        Document updateCancelOperation = new Document("$inc", new Document("cancelbooking.$.quantity", cancelQuantity));
+                        updateDocument("User", cancelFilter, updateCancelOperation);
+                    } else {
+                        // Add a new entry to the "cancelbooking" array
+                        Document canceledBooking = new Document()
+                                .append("hotel_name", chosenHotel)
+                                .append("room_type", chosenRoom)
+                                .append("quantity", cancelQuantity)
+                                .append("cancel_time", timestamp);
+    
+                        Document pushCancelOperation = new Document("$push", new Document("cancelbooking", canceledBooking));
+                        updateDocument("User", userFilter, pushCancelOperation);
+                    }
+    
+                    System.out.println("Booking cancellation processed successfully.");
+                    bookingExists = true;
+                    break;
+                }
+            }
+    
+            if (!bookingExists) {
+                System.err.println("Booking not found for the specified room.");
+            }
+    
+        } catch (NumberFormatException e) {
+            System.err.println("Invalid number format for the booking quantity.");
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("Failed to process booking cancellation.");
+            e.printStackTrace();
+        }
+    }
+    
 }
